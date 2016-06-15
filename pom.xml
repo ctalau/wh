@@ -2,6 +2,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>webhelp-responsive-output</artifactId>
+  <groupId>com.oxygenxml</groupId>
+  <version>1.0</version>
+  
   <properties>
     <oxygen-webhelp>${basedir}/dita-ot-2.3/plugins/com.oxygenxml.webhelp</oxygen-webhelp>
   </properties>
