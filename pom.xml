@@ -18,7 +18,7 @@
           <goal>exec</goal>
         </goals>
         <configuration>
-          <executable>${oxygen-webhelp}/ditaWebHelp.bat</executable>
+          <executable>${oxygen-webhelp}/ditaWebHelp.sh</executable>
         </configuration>
       </execution>
     </executions>
