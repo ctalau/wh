@@ -1,0 +1,561 @@
+/*
+ * ==============================================
+ * Skin for oXygen generated WebHelp.
+ * ==============================================
+ */
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Fonts.
+ *  
+ */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,300");
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: #fff;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Fight with bootstrap
+ *  
+ */
+.navbar-brand{
+    height:auto;
+}
+.navbar {
+    border:none;
+    border-radius:0;
+    margin:0;
+    color:#fff;
+    background: black none;
+}
+a,
+a:hover,
+a:visited{
+    color: #fff;
+}
+a:hover{
+    text-decoration: none;
+}
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Publication titles
+ *  
+ */
+.wh_logo_and_publication_title{
+    padding: 0 15px;
+}
+ .wh_publication_title > a{
+     vertical-align: middle;
+}
+
+.wh_logo {
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.wh_logo:empty {
+    width: 129px;
+    height: 48px;
+    background: url('resources/images/garage_logo.png') no-repeat center;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Menu
+ *  
+ */
+.wh_top_menu {
+    font-size: 1.1em;
+    margin: .4em 0;
+}
+
+/* The submenus */
+.wh_top_menu ul ul {
+    background-color: #456387;
+}
+.wh_top_menu ul li:hover {
+    background-color: #456387;
+}
+.wh_top_menu ul ul li a:hover {
+    background: #5b7ba9;
+    border-top-color: #4b545f;
+}
+.wh_top_menu ul ul li {
+}
+@media only screen and (max-width: 767px) {
+    .wh_top_menu ul ul {
+        border-top: 1px solid #CCCCCC;
+    }
+    .wh_top_menu li.active{
+        background-color: #456387;
+    }
+    .wh_top_menu ul ul li a:hover {
+        background-color: #456387;
+    }
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Link to the index.
+ * 
+ */
+ .wh_indexterms_link a span{
+    display:none;
+}
+.wh_indexterms_link a:before{
+  bottom:0.57em;
+}
+
+@media only screen and (max-width: 767px) {
+    .wh_indexterms_link a:before{
+        bottom: 0;
+    }
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Breadcrumb
+ *  
+ */
+.wh_breadcrumb ol {
+}
+.wh_breadcrumb ol{
+    color: #878787;
+}
+.wh_breadcrumb ol a {
+    color:inherit;
+}
+.wh_breadcrumb ol .active {
+    color: #5185cb;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tools and navigation
+ * 
+ */
+.wh_tools{
+    background-color: #333;
+    margin: 1em 0 2em;
+    border-radius: 5px;
+}
+.wh_right_tools {
+    padding: .55em;
+}
+
+.wh_print_link,
+.wh_navigation_links,
+.wh_navigation_links .navnext,
+.wh_navigation_links .navprev{
+}
+
+
+.wh_print_link a,
+.wh_navigation_links a,
+.wh_navigation_links a:hover,
+.wh_navigation_links a:active,
+.wh_navigation_links a:visited,
+.wh_print_link a:before,
+.wh_navigation_links a:before,
+.wh_navigation_links a:hover:before,
+.wh_navigation_links a:active:before,
+.wh_navigation_links a:visited:before{
+    color: #347bb7;
+    text-decoration: none;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tiles
+ * 
+ */
+.wh_tile > div{
+    margin: 1em;
+    padding: 1em;
+    border-radius: .5em;
+    background-color: #456387;
+    position:relative;
+    overflow:hidden;
+    height:10em;
+}
+.wh_tile_shortdesc{
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+.wh_tile_text:after{
+    background: linear-gradient(to bottom, rgba(69, 99,135, 0), rgba(69, 99,135, 1) 75%);
+}
+.wh_tile_title{
+    text-align: center;
+    font-size:1.5em;
+    text-decoration: none;
+}
+.wh_tile_title  a:hover{
+    color: #CCCCCC;
+}
+
+@media only screen and (max-width: 767px) {
+    .wh_tile_text {
+        height: auto;
+    }
+    .wh_tile > div{
+        height:auto;
+    }
+}
+/* 
+You can style some of the tiles in a special way. 
+Example:
+.wh_tiles *[data-id='getting_started']{
+    background-color:gray;
+}
+*/
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Search area
+ * 
+ */
+#searchForm > div {
+    height:2.5em;
+}
+.wh_welcome:not(:empty){
+    font-size: 4em;
+    text-shadow: 0 0 6px black;
+    margin: 0 auto;
+    font-family: 'Roboto Thin', sans-serif;
+    padding: 0 0 .5em 0;
+}
+
+.wh_search_textfield,.wh_search_button{
+    font-size: 1.3em;
+    padding: 0 .5em;
+    border: solid 1px #CCC;
+}
+.wh_search_textfield{
+    border-radius: 5px;
+    color:black;
+}
+.wh_search_button{
+    border-radius: 0 5px 5px 0;
+    background-color: #c46d04;
+    color:#fff;
+}
+.wh_search_input{
+    background: url('resources/images/bgr_mechano.jpg') center -185px no-repeat;
+}
+.wh_main_page .wh_search_input{
+    background: url('resources/images/bgr_mechano.jpg') center no-repeat;
+    background-size: cover;
+    padding:350px 0 50px;
+}
+
+
+.wh_search_input{
+    padding:50px 0;
+}
+
+/* Render search area for devices smaller than 767px */
+@media only screen and (max-width: 767px) {
+    .wh_main_page .wh_search_input,
+    .wh_search_input{
+        padding:2em;
+    }
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Side TOC
+ * 
+ */
+.wh_side_toc{
+    border-radius: 5px;
+    background-color: #456387;
+    padding: 1.5em 2em;
+    line-height: 2em;
+
+}
+.wh_side_toc .active {
+    color: #cbcb85;
+}
+.wh_side_toc a, .wh_side_toc a:visited, .wh_side_toc a:hover {
+    color: #ffffff;
+}
+.wh_side_toc a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 767px) {
+    .wh_side_toc{
+        padding-left: .5em;
+    }
+}
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Footer
+ * 
+ */
+.wh_footer{
+    text-align: center;
+    padding: 1em;
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Topic content
+ * 
+ */
+
+.topictitle1 {
+    color: #6290C7;
+}
+
+.wh_related_links,
+.wh_child_links,
+.wh_topic_content .related-links{
+    background-color: #456387;
+    padding: 1.5em;
+    margin: 20px auto;
+    width: 97%;
+    border-radius: 5px;
+}
+
+.related-links a,
+.related-links a:visited {
+    color: #fff;
+    padding-bottom: .3em;
+    display:inline-block;
+}
+.related-links a:hover {
+    text-decoration: underline;
+}
+
+.related-links li div{
+    padding-left:.5em;
+}
+
+@media only screen and (max-width: 767px) {
+    .wh_topic_content, .wh_content_area {
+        min-height: 0;
+    }
+
+    .wh_related_links,
+    .wh_child_links,
+    .wh_topic_content .related-links{
+        width: 100%;
+    }
+}
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Search results.
+ * 
+ */
+.searchresult {
+    list-style: none;
+}
+.searchresult li{
+    padding: .5em;
+}
+.searchresult li a, 
+.wh_search_expression{
+    color:#346ec5;
+}
+.searchresult .shortdesclink {
+    margin: .3em .5em 0;
+}
+.wh_search_expression{
+    font-weight:bold;
+}
+
+
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Index terms.
+ * 
+ */
+.wh_index_terms span.wh_first_letter {
+    color: #346ec5;
+}
+.wh_index_terms #indexList{
+    padding:0;
+}
+
+
+
+/*
+ * ------------------------------------------------------------------
+ *  
+ * Tree TOC for the main page.
+ * 
+ */
+.wh_toc_shortdesc{
+    color:#aaa;
+}
+
+.wh_main_page_toc{
+}
+
+/* Colors */
+.wh_main_page_toc{
+    border: 1px solid #5b7ba9;
+    background-color: #456387;
+}
+.wh_main_page_toc .wh_main_page_toc_accordion_header,
+.wh_main_page_toc > .wh_main_page_toc_entry {
+    border-bottom: 1px solid #5b7ba9;
+}
+.wh_main_page_toc>.wh_main_page_toc_entry:last-child {
+    border-bottom: none;
+}
+.wh_main_page_toc_accordion_entries{
+    background-color: #456387;
+    border-bottom: 1px solid #5b7ba9;
+}
+.wh_main_page_toc_accordion_entries:hover{
+    background-color: #456387;
+}
+.wh_main_page_toc .expanded {
+    border-bottom: 0;
+    background-color: #456387;
+}
+.wh_main_page_toc .wh_main_page_toc_accordion_header:hover{
+    background-color: #5b7ba9;
+}
+.wh_main_page_toc>.wh_main_page_toc_entry:hover{
+    background-color: #5b7ba9;
+}
+.wh_main_page_toc a {
+    color: #fff;
+}
+
+/**
+ * Highlight color
+ */
+.highlight {
+    background-color: #9E5000;
+}
+
+
+
+/*
+ * 
+ * Colors for comments and change tracking. Since this is a black theme, there are some changes. 
+ * 
+ */
+oxy-attributes,
+oxy-comment,
+oxy-delete,
+oxy-insert,
+.oxy-attributes,
+.oxy-comment,
+.oxy-delete,
+.oxy-insert  {
+        background-color: #FFFFAA; 
+        color:black;
+}
+oxy-attributes a,
+oxy-comment a,
+oxy-delete a,
+oxy-insert a,
+.oxy-attributes a,
+.oxy-comment a,
+.oxy-delete a,
+.oxy-insert a {
+    color:navy;
+} 
+
+    
+/*
+ * The marked as done changes should be grayed out.
+ */
+oxy-attributes[flag~="done"],
+oxy-comment[flag~="done"],
+oxy-delete[flag~="done"],
+oxy-insert[flag~="done"],
+.oxy-attributes[flag~="done"],
+.oxy-comment[flag~="done"],
+.oxy-delete[flag~="done"],
+.oxy-insert[flag~="done"] {
+    color:gray;
+}       
+oxy-attributes,
+.oxy-attributes{
+    border-color:white;
+}
+oxy-comment,
+.oxy-comment{
+    border-color:transparent;
+}
+oxy-delete,
+.oxy-delete{
+    border-color:red;
+}
+oxy-insert,
+.oxy-insert{
+    border-color:blue;
+}
+oxy-range-start,
+.oxy-range-start,
+oxy-range-end,
+.oxy-range-end {
+    background-color: yellow;
+    color:black;
+}
+oxy-insert-hl,
+.oxy-insert-hl{
+    color:#7676F7; 
+}
+oxy-delete-hl,
+.oxy-delete-hl {
+    color:red;
+}
+oxy-comment-hl,
+.oxy-comment-hl{
+    background-color:yellow;
+    color:black;
+}
+
+oxy-attributes   oxy-comment,
+oxy-comment  	 oxy-comment,
+oxy-delete  	 oxy-comment,
+oxy-insert   	 oxy-comment,
+.oxy-attributes .oxy-comment,
+.oxy-comment  	.oxy-comment,
+.oxy-delete  	.oxy-comment,
+.oxy-insert  	.oxy-comment {
+	border-left-color: black;
+}

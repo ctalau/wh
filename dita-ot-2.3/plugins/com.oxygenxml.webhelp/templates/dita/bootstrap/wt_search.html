@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html [
+    <!ENTITY header SYSTEM "header.xml">
+    <!ENTITY footer SYSTEM "footer.xml">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:whc="http://www.oxygenxml.com/webhelp/components">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search Results</title>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/jquery-1.11.3.min.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/jquery.cookie.js"><!----></script>
+
+      <link rel="stylesheet"
+        href="${oxygen-webhelp-assets-dir}/resources/css/webhelp_responsive_topic.css" />
+
+        <!-- Latest compiled and minified Bootstrap CSS -->
+        <link rel="stylesheet" href="${oxygen-webhelp-assets-dir}/resources/bootstrap/css/bootstrap.min.css" />
+        
+        <!-- Bootstrap Optional theme -->
+        <link rel="stylesheet"
+            href="${oxygen-webhelp-assets-dir}/resources/bootstrap/css/bootstrap-theme.min.css" />
+                
+        <!-- Search -->
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/nwSearchFnt.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/responsive/search.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/localization/strings.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/localization.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/parseuri.js"/>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/htmlFileInfoList.js"><!----></script>
+
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/index-1.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/index-2.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/index-3.js"><!----></script>
+
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/htmlFileList.js"><!----></script>
+
+        <link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/resources/css/wt_default.css" />
+
+        <script type="text/javascript">
+        /**
+         * @description Search using Google Search if it is available, otherwise use our search engine to execute the query
+         * @return {boolean} Always return false
+         */
+        function executeQuery() {
+            var input = document.getElementById('textToSearch');
+            try {
+                var element = google.search.cse.element.getElement('searchresults-only0');
+            } catch (e) {
+                debug(e);
+            }
+            if (element != undefined) {
+                if (input.value == '') {
+                    element.clearAllResults();
+                } else {
+                    element.execute(input.value);
+                }
+            } else {
+                SearchToc($("#textToSearch").val());
+            }
+
+            return false;
+        }
+
+        function clearHighlights() {
+
+        }
+
+        $(document).ready(function () {
+            $('.wh_indexterms_link').find('a').text('');
+        });
+    </script>
+        
+        <style>
+            .wh_search_results {
+                min-height: 40%;
+            }
+        </style>
+        <whc:include_html href="${webhelp.fragment.head}"/>
+    </head>
+    <body class="wh_search_page">
+        <whc:include_html href="${webhelp.fragment.before.body}"/>
+        &header;        
+        <!-- Search form -->
+        <whc:webhelp_search_input class="navbar-form search" role="form"/>
+        <div class="container wh_content_area">
+            <div class="row">
+                <whc:webhelp_search_results class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="searchResults"/>
+            </div>
+        </div>
+        &footer;
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="${oxygen-webhelp-assets-dir}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="${oxygen-webhelp-template-dir}/resources/js/wt_default.js" type="text/javascript" />
+        <whc:include_html href="${webhelp.fragment.after.body}"/>
+    </body>
+</html>

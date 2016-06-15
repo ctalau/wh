@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html [
+    <!ENTITY header SYSTEM "header.xml">
+    <!ENTITY footer SYSTEM "footer.xml">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:whc="http://www.oxygenxml.com/webhelp/components">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Index Terms</title>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/jquery-1.11.3.min.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/jquery.cookie.js"><!----></script>
+        
+      <link rel="stylesheet"
+        href="${oxygen-webhelp-assets-dir}/resources/css/webhelp_responsive_topic.css" />
+        
+        <!-- Latest compiled and minified Bootstrap CSS -->
+        <link rel="stylesheet" href="${oxygen-webhelp-assets-dir}/resources/bootstrap/css/bootstrap.min.css" />
+        
+        <!-- Bootstrap Optional theme -->
+        <link rel="stylesheet"
+            href="${oxygen-webhelp-assets-dir}/resources/bootstrap/css/bootstrap-theme.min.css" />
+
+        <!-- Expand-collapse support styles  -->
+        <link rel="stylesheet" type="text/css"
+              href="${oxygen-webhelp-template-dir}/resources/css/wt_expand.css" />
+
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/localization/strings.js"><!----></script>
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/resources/js/localization.js"><!----></script>
+        
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/htmlFileInfoList.js"><!----></script>
+        
+        <script type="text/javascript" src="${oxygen-webhelp-assets-dir}/search/htmlFileList.js"><!----></script>
+        
+        <link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/resources/css/wt_default.css" />
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.wh_indexterms_link').find('a').text('');
+            });
+        </script>
+        <whc:include_html href="${webhelp.fragment.head}"/>
+    </head>
+    <body class="wh_terms_page">
+        <whc:include_html href="${webhelp.fragment.before.body}"/>
+        &header;        
+        <div class="container">
+            <div class="row">
+                <whc:webhelp_index_terms class="col-xs-12 col-sm-12 col-md-12 col-lg-12"/>
+            </div>
+        </div>
+        &footer;
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="${oxygen-webhelp-assets-dir}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Expand/collapse support -->
+        <script src="${oxygen-webhelp-template-dir}/resources/js/wt_expand.js" type="text/javascript" />
+        <whc:include_html href="${webhelp.fragment.after.body}"/>
+    </body>
+</html>

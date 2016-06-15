@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <properties>
+    <oxygen-webhelp>${basedir}/dita-ot-2.3/plugins/com.oxygenxml.webhelp</oxygen-webhelp>
+  </properties>
+
+  <plugin>
+    <artifactId>exec-maven-plugin</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <executions>
+      <execution>
+        <!-- Run our version calculation script -->
+        <id>Version Calculation</id>
+        <phase>generate-sources</phase>
+        <goals>
+          <goal>exec</goal>
+        </goals>
+        <configuration>
+          <executable>${oxygen-webhelp}/ditaWebHelp.bat</executable>
+        </configuration>
+      </execution>
+    </executions>
+  </plugin>
+</project>

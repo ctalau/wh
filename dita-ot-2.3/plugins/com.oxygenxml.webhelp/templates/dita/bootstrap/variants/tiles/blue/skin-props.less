@@ -1,0 +1,123 @@
+/* Font */
+@fontFamily: "Questrial";
+@availableFontWeights: "300,400,700";
+@fontUrl: "https://fonts.googleapis.com/css?family=@{fontFamily}:@{availableFontWeights}";
+
+/* Theme colors */
+@themeColor: rgb(32, 86, 172);
+@themeLightColor: #E3F0F7;
+@contentColor: #444;
+@linkColor: #64ABD1;
+@contentBgr: #ffffff;
+@headerColor: #ffffff;
+
+/* Header */
+@headerBgr: @themeColor;
+@publicationTitleColor: @headerColor;
+.publicationTitle {
+  color: @publicationTitleColor;
+  text-transform: none;
+  font-weight: normal;
+  line-height: 1em;
+  font-size: 1em;
+}
+
+/* Footer */
+@footerBgr: @themeColor;
+@footerColor: @headerColor;
+@footerLinkColor: @linkColor;
+
+/* Menus */
+@menuBgr: @contentBgr;
+@menuColor: @themeColor;
+@hoveredMenuBgr: @themeLightColor;
+@hoveredMenuColor: @themeColor;
+
+@submenuBgr: @themeLightColor;
+@submenuColor: darken(@hoveredSubmenuColor, 20%);
+@hoveredSubmenuColor: @themeColor;
+
+@mobileMenuToggleColor: @themeColor;
+@mobileMenuToggleBgr: @themeLightColor;
+
+/* Indexterms link */
+@indextermsLinkCol: @headerColor;
+
+/* Main page content area */
+
+@mainPageContentColor: @themeColor;
+@mainPageContentBgr: #ffffff;
+
+.mainPageBgr {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.mainPageContentAreaBgr {
+  background-color: @mainPageContentBgr;
+}
+
+/* Search area */
+@searchBgr: @themeColor;
+
+.searchBgr {
+
+}
+
+@searchFieldBorderColor: @themeLightColor;
+@searchFieldColor: @themeColor;
+@searchFieldBgr: @headerColor;
+@searchFieldBorderRadius: 4px;
+@searchButtonHoverColor: @themeLightColor;
+
+/* Tiles */
+@tileTitleColor: @mainPageContentColor;
+@tileShortDescColor: @linkColor;
+
+/* TOC */
+@tocEntryBgr: @mainPageContentBgr;
+@tocEntryColor: @mainPageContentColor;
+@tocShortDescColor: @linkColor;
+
+@tocEntryHoverColor: @themeColor;
+@tocEntryHoverBgr: @themeLightColor;
+
+@tocBorderColor: @themeLightColor;
+
+/* Breadcrumb */
+@breadcrumbColor: @contentColor;
+@breadcrumbActiveLinkColor: @linkColor;
+@breadcrumbBorderColor: @themeLightColor;
+@breadcrumbBgr: @themeLightColor;
+
+
+/* Side TOC */
+@sideTocBorderColor: @themeLightColor;
+@sideTocBgr: @contentBgr;
+@sideTocColor: @linkColor;
+
+
+/* Topic content */
+
+@titleColor: @contentColor;
+@subtitleColor: lighten(@titleColor, 30%);
+@subTitleBorderColor: @themeLightColor;
+@topicContentColor: @contentColor;
+@topicContentBgr: @themeLightColor;
+
+/* Related links & child links*/
+@relLinksBgr: @contentBgr;
+@relLinksBorderColor: @themeLightColor;
+
+/* Search results */
+@searchExpressionColor: @themeColor;
+@searchResultLinkColor: @linkColor;
+@searchTermHighlightBgr: @themeColor;
+@searchTermHighlightColor: @themeLightColor;
+
+/* Index terms */
+@indexTermFirstLetterColor: @themeColor;
+@indexTermColor: @contentColor;
+@indexTermGroupBorderColor: @themeLightColor;
+@indexTermGroupBgr: @themeLightColor;

@@ -1,0 +1,330 @@
+<feature extension="package.support.name" value="Oxygen XML Editor Support"/>
+<feature extension="package.support.email" value="support@oxygenxml.com"/>
+<feature extension="package.version" value="18.1"/>
+
+<feature extension="dita.conductor.transtype.check" value="webhelp" type="txt"/>
+<feature extension="dita.conductor.transtype.check" value="webhelp-responsive" type="txt"/>
+<feature extension="dita.conductor.transtype.check" value="webhelp-mobile" type="txt"/>
+<feature extension="dita.conductor.transtype.check" value="webhelp-feedback" type="txt"/>
+<feature extension="dita.conductor.transtype.check" value="webhelp-feedback-mobile" type="txt"/>
+
+<feature extension="depend.preprocess.move-meta-entries.pre" value="add-links"/>
+<feature extension="dita.conductor.target.relative" value="integrator.xml" type="file"/>
+<feature extension="dita.xsl.maplink" value="xsl/dita/maplinkNextPrevFullIteration.xsl" type="file"/>
+<feature extension="dita.preprocess.topicpull.param" value="insertParameters.xml" type="file"/>
+<feature extension="dita.conductor.html.param" value="insertParameters.xml" type="file"/>
+<feature extension="dita.conductor.xhtml.param" value="insertParameters.xml" type="file"/>
+<feature extension="dita.conductor.lib.import" value="lib/ant-contrib-1.0b3.jar" type="file"/>
+<feature extension="dita.xsl.strings" file="oxygen-webhelp/resources/localization/strings.xml"/>
+<extension-point id="com.oxygenxml.main.target.dependencies" name="Custom dependencies"/>
+<extension-point id="com.oxygenxml.webhelp.param" name="WebHelp Specific ANT Parameters passed when generating HTML for each topic"/>
+<template file="build_dita_template.xml"/>
+
+<transtype name="webhelpCommons" extends="base-html" abstract="true">
+    <param name="webhelp.copyright"
+        desc="The copyright note that will be added in the footer of the Table of Contents frame 
+        (the left side frame of the WebHelp output)."
+        type="string"/>
+    <param name="webhelp.custom.resources"
+        desc="The file path to  a directory that contains resources files. All files from this directory will be copied to the root of the WebHelp output."
+        type="dir"/>
+    <param name="webhelp.favicon"
+        desc="The file path of an image used as favicon."
+        type="file"/>
+    <param name="webhelp.google.search.script"
+        desc="Specifies the location of a well-formed XHTML file that contains the Custom Search Engine script from Google.
+        The value must be a URL."
+        type="string"/>
+    <param name="webhelp.google.search.results"
+        desc="Specifies the location of a well-formed XHTML file that contains the Google Custom Search Engine element &quot;gcse:searchresults-only&quot;. The value must be a URL. You can use all supported attributes for this element. It is recommended to set the &quot;linkTarget&quot; attribute value to &quot;frm&quot; for frameless (iframe) versions of WebHelp, or to &quot;contentWin&quot; for frameset versions of WebHelp.
+        The default value for this attribute is &quot;_blank&quot; and the search results will be loaded in a new window.
+        If this parameter is not specified, the following code will be used:
+        &lt;gcse:searchresults-only linkTarget=&quot;frm&quot;&gt;&lt;/gcse:searchresults-only&gt;"
+        type="string"/>
+    <param name="args.hide.parent.link"
+        desc="Enables the display for header links of the following types: Parent Topic,  Next Topic, Previous Topic."
+        type="enum">
+        <val default="true">no</val>
+        <val>yes</val>
+    </param>
+    <param name="custom.rate.page.url"
+        desc="The URL of a remote PHP or CGI script where the publisher of the WebHelp output will receive the user ratings."
+        type="string"/>
+    <param name="use.stemming"
+        desc="Specifies if stemming is used when searching in WebHelp generated content." type="enum">
+        <val default="true">false</val>
+        <val>true</val>
+    </param>
+    <param name="webhelp.sitemap.priority"
+        desc="The value of the &quot;priority&quot; element in the generated sitemap.xml file. 
+        Possible value is any fractional number between 0.0 (least important priority) and 1.0 (most important priority). For example: 0.3, 0.5, 0.8, etc. 
+        The &quot;priority&quot; element is optional in the sitemap.xml. 
+        If you leave this parameter set to its default empty value, the priority element is not added in sitemap.xml."
+        type="string"/>
+    <param name="webhelp.sitemap.change.frequency"
+        desc="The value of the &quot;changefreq&quot; element in the generated sitemap.xml file. 
+        The &quot;changefreq&quot; element is optional in the sitemap.xml file. 
+        If you leave this parameter set to its default empty value, the changefreq element is not added in sitemap.xml."
+        type="enum">
+        <val default="true"/>
+        <val>always</val>
+        <val>hourly</val>
+        <val>daily</val>
+        <val>weekly</val>
+        <val>monthly</val>
+        <val>yearly</val>
+        <val>never</val>
+    </param>
+    <param name="webhelp.search.japanese.dictionary"
+        desc="File path of the user dictionary that will be used by the Kuromoji indexer for indexing
+        Japanese content in the WebHelp pages.
+        
+        This indexer does not come bundled with oXygen XML. To use it, you need to download it from http://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-kuromoji/4.0.0 and add it in the OXYGEN_INSTALL_DIR/frameworks/dita/DITA-OT/plugins/com.oxygenxml.webhelp/lib directory."
+        type="string"/>
+    <param name="webhelp.sitemap.base.url"
+        desc="Base URL for all the &quot;loc&quot; elements in the generated sitemap.xml file.
+        The value of a &quot;loc&quot; element is composed of the value of the base URL parameter, followed by the value of the href attributes of the topicref elements (a relative file path).  
+        The &quot;loc&quot; element is mandatory in the sitemap.xml file. If you leave this parameter set to its default empty value, the sitemap.xml file is not generated."
+        type="string"/>
+    <param name="args.default.language"
+        desc="Specifies the language of the UI items displayed (such as labels or buttons) in the WebHelp output."
+        type="string">
+        <val default="true">en-us</val>
+    </param>
+    <param name="webhelp.reload.stylesheet"
+        desc="Set this parameter if you have out of memory problems generating WebHelp. It will increase processing time but
+        decrease the memory footprint."
+        type="enum">
+        <val default="true">false</val>
+        <val>true</val>
+    </param>
+    <param name="webhelp.show.changes.and.comments" 
+        type="enum"
+        desc="When set on 'yes', the user comments, colored highlights and trackchanges are shown in the output.">
+        <val default="true">no</val>
+        <val>yes</val>
+    </param>    
+    
+</transtype>
+
+<transtype name="webhelp-responsive" extends="webhelpCommons" desc="WebHelp Responsive">
+    <param name="webhelp.logo.image"
+        desc="The URL of a remote file or the file path of a local file that contains the logo image that will be added in the header area."
+        type="file"/>
+    <param name="webhelp.logo.image.target.url"
+        desc="The URL of the link that will be opened when the user clicks the logo image."
+        type="file"/>
+    <param name="webhelp.search.ranking"
+        desc="If this parameter is set to false, then the 5-star rating mechanism is no longer included in the search results that are displayed on the Search tab (default setting is true)."
+        type="enum">
+        <val default="true">true</val>
+        <val>false</val>
+    </param>
+    <param name="webhelp.fragment.welcome"
+        desc="Specifies the path to the HTML file that contains the welcome message on the main page."
+        type="file">
+ 	</param>    
+    <param name="webhelp.top.menu.depth"
+        desc="Specifies the maximum depth of the topics top menu."
+        type="string">
+        <val default="true">2</val>
+    </param>
+    <param name="webhelp.show.main.page.tiles"
+        desc="Specifies if topic tiles will be presented in the main page."
+        type="enum">
+        <val default="true">no</val>
+        <val>yes</val>
+    </param>    
+    <param name="webhelp.show.main.page.toc"
+        desc="Specifies if Table of Contents (TOC) will be presented in the main page in a tree like (accordion) fashion."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.breadcrumb"
+        desc="Specifies if the breadcrumb component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.navigation.links"
+        desc="Specifies if the navigation links component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.print.link"
+        desc="Specifies if the print link component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.indexterms.link"
+        desc="Specifies if the link to the index terms will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.side.toc"
+        desc="Specifies if the side TOC component will be presented in the Webhelp Responsive output for 'topic' files."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.top.menu"
+        desc="Specifies if the top menu component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.related.links"
+        desc="Specifies if the related links component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.merge.nested.topics.related.links"
+        desc="Specifies if the related links from the nested topics of will be merged with the links in the parent topic.
+        Thus the links will be moved from the topic content to the related links component."
+        type="enum">
+        <val default="true">yes</val>
+        <val>no</val>
+    </param>
+    <param name="webhelp.show.child.links"
+        desc="Specifies if the child links component will be presented in the Webhelp Responsive output."
+        type="enum">
+        <val default="true">no</val>
+        <val>yes</val>
+    </param>
+  
+    <param name="webhelp.fragment.footer"
+      desc="Specifies the path to the HTML file that contains the content for the WebHelp footer. It can also be an XML fragment."
+      type="file">
+        <val default="true">
+        WebHelp output generated by &lt;a class="oxyFooter" href="http://www.oxygenxml.com" target="_blank"&gt;
+            &amp;lt;oXygen/&amp;gt; XML Author
+        &lt;/a&gt;
+        </val>            
+    </param>
+    
+    <!-- Before & after logo and title -->
+    <param name="webhelp.fragment.before.logo_and_title"
+        desc="Specifies the path to the HTML file that contains the content to be included before the WebHelp logo and title. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    <param name="webhelp.fragment.after.logo_and_title"
+        desc="Specifies the path to the HTML file that contains the content to be included after the WebHelp logo and title. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    
+    <!-- Before & after top menu -->
+    <param name="webhelp.fragment.before.top_menu"
+        desc="Specifies the path to the HTML file that contains the content to be included before the WebHelp top menu. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    <param name="webhelp.fragment.after.top_menu"
+        desc="Specifies the path to the HTML file that contains the content to be included after the WebHelp top menu. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    
+    <!-- html head -->
+    <param name="webhelp.fragment.head"
+        desc="Specifies the path to the HTML file that contains the content to be included in the html 'head' element of the WebHelp pages. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    
+    <!-- Before & after html -->
+    <param name="webhelp.fragment.before.body"
+        desc="Specifies the path to the HTML file that contains the content to be included at the beginning of the html 'body' element of the WebHelp pages. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    <param name="webhelp.fragment.after.body"
+        desc="Specifies the path to the HTML file that contains the content to be included at the end of the html 'body' element of the WebHelp pages. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    
+    <!-- Before & after the main page search component -->
+    <param name="webhelp.fragment.before.main.page.search"
+        desc="Specifies the path to the HTML file that contains the content to be included before the WebHelp main page search component. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    <param name="webhelp.fragment.after.main.page.search"
+        desc="Specifies the path to the HTML file that contains the content to be included after the WebHelp main page search component. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    
+    <!-- Before & after the toc or tiles component -->
+    <param name="webhelp.fragment.before.toc_or_tiles"
+        desc="Specifies the path to the HTML file that contains the content to be included before the WebHelp main page TOC or tiles component. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+    <param name="webhelp.fragment.after.toc_or_tiles"
+        desc="Specifies the path to the HTML file that contains the content to be included after the WebHelp main page TOC or tiles component. It can also be an XML fragment."
+        type="file">
+        <val default="true"></val>            
+    </param>
+</transtype>
+
+<transtype name="webhelp" extends="webhelpCommons" desc="WebHelp Classic">
+    <param name="webhelp.logo.image"
+        desc="The URL of a remote file or the file path of a local file that contains the logo image that will be added in the header area."
+        type="file"/>
+    <param name="webhelp.logo.image.target.url"
+        desc="The URL of the link that will be opened when the user clicks the logo image."
+        type="file"/>
+    <param name="webhelp.search.ranking"
+        desc="If this parameter is set to false, then the 5-star rating mechanism is no longer included in the search results that are displayed on the Search tab (default setting is true)."
+        type="enum">
+        <val default="true">true</val>
+        <val>false</val>
+    </param>
+    <param name="webhelp.footer.include" desc="Include footer in each Webhelp page" type="enum">
+        <val default="true"
+            desc="If the &quot;webhelp.footer.file&quot; parameter has a value, the content of that file is used as footer. 
+            If &quot;webhelp.footer.file&quot; has no value, the default Oxygen footer is inserted in each Webhelp page."
+            >yes</val>
+        <val desc="No footer is added to the Webhelp pages.">no</val>
+    </param>
+    <param name="webhelp.footer.file"
+        desc="Specifies the location of a well-formed XHTML file that contains your custom footer for the document body. 
+        Corresponds to the WEBHELP_FOOTER_FILE parameter in XSLT. The fragment must be well-formed XHTML, with a single root element. Common practice is to place all content into a &lt;div&gt;."
+        type="file"/>    
+</transtype>
+
+
+<transtype name="webhelp-feedback" extends="webhelp" desc="WebHelp Classic with Feedback">
+    <param name="webhelp.product.id"
+        desc="Specifies an identifier of the current documentation project. This is needed when multiple WebHelp systems are deployed on the same server.
+        For example, &quot;mobile-phone-user-guide&quot; or &quot;hvac-installation-guide&quot;"
+        type="string"/>
+    <param name="webhelp.product.version"
+        desc="Specifies the documentation version number (for example, 1.0, 2.5, etc.). New user comments are bound to this version. Multiple documentation versions can be deployed on the same server."
+        type="string"/>
+</transtype>
+
+<transtype name="webhelp-mobile" extends="webhelpCommons" desc="WebHelp Classic Mobile">
+    <param name="webhelp.footer.include" desc="Include footer in each Webhelp page" type="enum">
+        <val default="true"
+            desc="If the &quot;webhelp.footer.file&quot; parameter has a value, the content of that file is used as footer. 
+            If &quot;webhelp.footer.file&quot; has no value, the default Oxygen footer is inserted in each Webhelp page."
+            >yes</val>
+        <val desc="No footer is added to the Webhelp pages.">no</val>
+    </param>
+    <param name="webhelp.footer.file"
+        desc="Specifies the location of a well-formed XHTML file that contains your custom footer for the document body. 
+        Corresponds to the WEBHELP_FOOTER_FILE parameter in XSLT. The fragment must be well-formed XHTML, with a single root element. Common practice is to place all content into a &lt;div&gt;."
+        type="file"/>    
+</transtype>
+
+<transtype name="webhelp-feedback-mobile" extends="webhelp-feedback" desc="WebHelp Classic Mobile with Feedback" abstract="true"/>
+

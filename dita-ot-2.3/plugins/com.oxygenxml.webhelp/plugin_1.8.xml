@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Oxygen WebHelp Plugin for DITA OT 1.8.x or older.
+
+Oxygen WebHelp Plugin
+Copyright (c) 1998-2016 Syncro Soft SRL, Romania.  All rights reserved.
+
+
+-->
+<!DOCTYPE plugin[
+ <!ENTITY commons SYSTEM 'plugin_commons.xml'>
+]>
+<plugin id="com.oxygenxml.dita-ot.plugin.webhelp">
+    &commons;
+    <feature extension="dita.xsl.mappull" file="xsl/dita/mappullAddMetadata1.8.x.xsl"/>
+    <feature extension="com.oxygenxml.main.target.dependencies" value="build-init, 
+        check-license, 
+        create-props-file,
+        check-webhelp-feedback-parameters,
+        dita.map.webhelp.init, 
+        preprocess,
+        dita.out.map.webhelp.toc,
+        dita.webhelp.sitemap.xml,
+        copy-webhelp-resources,
+        copy-webhelp-responsive-resources,
+        copy-css, 
+        dita.topics.xhtml, 
+        webhelp-indexterms, 	                       
+        dita.inner.topics.webhelp,
+        dita.outer.topics.xhtml, 
+        create-main-files,
+        webhelp-index,
+        dita2webhelp-feedback-localization" type="text"/>
+   <feature extension="dita.xsl.xhtml" value="xsl/dita/ditaPatches1_8.xsl" type="file"/>
+</plugin>

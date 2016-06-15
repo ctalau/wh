@@ -1,0 +1,117 @@
+/* Font */
+@fontFamily: "Raleway";
+@availableFontWeights: "300,400,700";
+@fontUrl: "https://fonts.googleapis.com/css?family=@{fontFamily}:@{availableFontWeights}";
+
+/* Theme colors */
+@themeColor: #545669;
+@themeLightColor: #e3e5f8;
+@contentColor: #444;
+@linkColor: #7d72d4;
+@contentBgr: #ffffff;
+
+/* Header */
+@headerBgr: @contentBgr;
+@publicationTitleColor: @themeColor;
+
+/* Menus */
+@menuBgr: @contentBgr;
+@menuColor: @contentColor;
+@hoveredMenuBgr: @themeColor;
+@hoveredMenuColor: #ffffff;
+
+@submenuBgr: @themeColor;
+@submenuColor: darken(@hoveredSubmenuColor, 20%);
+@hoveredSubmenuColor: #ffffff;
+
+@mobileMenuToggleColor: @themeColor;
+@mobileMenuToggleBgr: @themeLightColor;
+
+/* Indexterms link */
+@indextermsLinkCol: @themeColor;
+
+/* Breadcrumb */
+@breadcrumbColor: @contentColor;
+@breadcrumbActiveLinkColor: @linkColor;
+@breadcrumbBorderColor: @themeLightColor;
+@breadcrumbBgr: @contentBgr;
+
+/* Main page content area */
+
+@bgrImage: "resources/images/high-tech.jpg";
+@contentBgrImageColor: fade(darken(@themeColor, 17%), 80%);
+@mainPageContentColor: #ffffff;
+@mainPageContentBgr: transparent;
+
+.mainPageBgr {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.mainPageContentAreaBgr {
+  background-image: linear-gradient(@contentBgrImageColor, @contentBgrImageColor),
+  url(@bgrImage);
+  .mainPageBgr;
+}
+
+/* Tiles */
+@tileTitleColor: @mainPageContentColor;
+@tileShortDescColor: @themeLightColor;
+
+/* TOC */
+@tocEntryBgr: @mainPageContentBgr;
+@tocEntryColor: @mainPageContentColor;
+@tocShortDescColor: @themeLightColor;
+
+@tocEntryHoverColor: @themeColor;
+@tocEntryHoverBgr: @mainPageContentColor;
+
+@tocBorderColor: @themeLightColor;
+
+/* Search area */
+@searchBgrImage: @bgrImage;
+@searchBgrImageColor: fade(#000, 30%);
+
+.searchBgr {
+  background-image: linear-gradient(@searchBgrImageColor, @searchBgrImageColor),
+  url(@bgrImage);
+  .mainPageBgr;
+}
+
+@searchFieldBorderColor: @themeLightColor;
+@searchFieldColor: @mainPageContentColor;
+@searchFieldBgr: transparent;
+@searchFieldBorderRadius: 0;
+@searchButtonHoverColor: fade(@searchFieldBgr, 20%);
+
+/* Side TOC */
+@sideTocBorderColor: @themeLightColor;
+@sideTocBgr: @contentBgr;
+@sideTocColor: @linkColor;
+
+/* Footer */
+@footerBgr: @themeColor;
+@footerColor: @mainPageContentColor;
+@footerLinkColor: @linkColor;
+
+/* Topic content */
+
+@titleColor: @contentColor;
+@subtitleColor: lighten(@titleColor, 30%);
+@subTitleBorderColor: @themeLightColor;
+@topicContentColor: @contentColor;
+
+/* Related links & child links*/
+@relLinksBgr: @contentBgr;
+@relLinksBorderColor: @themeLightColor;
+
+/* Search results */
+@searchExpressionColor: @themeColor;
+@searchResultLinkColor: @linkColor;
+@searchTermHighlightBgr: @themeLightColor;
+
+/* Index terms */
+@indexTermFirstLetterColor: @themeColor;
+@indexTermColor: @contentColor;
+@indexTermGroupBorderColor: @themeLightColor;
