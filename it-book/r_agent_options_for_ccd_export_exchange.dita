@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="r_agent_options_for_ccd_export_exchange">
+    <title>Agent Options for CCD Export Exchange</title>
+    <shortdesc>Agent options specify behaviors for various categories of agent
+        functionality.</shortdesc>
+    <refbody>
+        <table id="table_v5w_ngs_xhb" rowheader="firstcol">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="1*"/>
+                <thead>
+                    <row>
+                        <entry>Option</entry>
+                        <entry>Value</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry nameend="c2" namest="c1">CDA Export</entry>
+                    </row>
+                    <row>
+                        <entry>CDA Content Selection Filter</entry>
+                        <entry>Use to exclude information, such as advanced directives, allergies,
+                            lab results, etc., and related section information from a CDA document.
+                            For example, if you exclude resolved allergies, they are not included in
+                            the document, but unresolved allergies are. To configure this filter,<ol
+                                id="ol_w5w_ngs_xhb">
+                                <li>
+                                    <p>Click the <uicontrol>Ellipsis</uicontrol> button. </p>
+                                </li>
+                                <li>
+                                    <p>Clear the items you want to exclude and click
+                                            <uicontrol>OK</uicontrol>. </p>
+                                </li>
+                            </ol>If you use both <uicontrol>CDA Content Selection Filter</uicontrol>
+                            option and the <uicontrol>Content Generation Filter</uicontrol> option,
+                            then the effects of the filters combine. That is, a category is omitted
+                            from CDAs if it is excluded by either filter. <p>Of these two filters,
+                                the <uicontrol>Content Generation Filter</uicontrol> has the
+                                advantage of lowering agent overhead, because it limits the
+                                information that the agent collects. By contrast, the <uicontrol>CDA
+                                    Content Selection Filter</uicontrol> specifies what portion of
+                                the collected information actually gets exported. The other
+                                difference between these options is that they present slightly
+                                different categories of information for filtering. </p></entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Consent</entry>
+                    </row>
+                    <row>
+                        <entry>HIE Consent - Use Effective Date</entry>
+                        <entry>Specify whether the modification date or the start date is exported
+                            as the effective date in PD1-13.<ul id="ul_ds4_d2j_gjb">
+                                <li>
+                                    <uicontrol>Yes:</uicontrol> The start_date from the
+                                    hie_consent_patient table is used. </li>
+                                <li>
+                                    <uicontrol>No:</uicontrol> The modify_timestamp from the
+                                    hie_consent_patient table is used. </li>
+                            </ul>The default value for new and upgraded agents is
+                                <uicontrol>Yes</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Process patient's HIE consent</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to process the patient's HIE
+                            consent. The default value is <uicontrol>No</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">CDA Validation</entry>
+                    </row>
+                    <row>
+                        <entry>Enable CDA Validation</entry>
+                        <entry>If this option is enabled, the agent attempts to validate the CDA
+                            document.</entry>
+                    </row>
+                    <row>
+                        <entry>On Validation Failure – Cancel Export</entry>
+                        <entry>If this option is enabled, the agent does not export the CDA if there
+                            are validation errors.</entry>
+                    </row>
+                    <row>
+                        <entry>On Validator Error – Cancel Export</entry>
+                        <entry>If this option is enabled, the agent does not export the CDA if
+                            validation could not be performed.</entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Content Filter</entry>
+                    </row>
+                    <row>
+                        <entry>CDA Content Date Limit</entry>
+                        <entry>Specify the maximum age (in days) of the CDA Content to be collected
+                            for a patient. Possible values are:<ul id="ul_es4_d2j_gjb">
+                                <li>
+                                    <uicontrol>NoLimit:</uicontrol> No limit (the default value) </li>
+                                <li>
+                                    <uicontrol>91:</uicontrol> Three months </li>
+                                <li>
+                                    <uicontrol>182:</uicontrol> Six months </li>
+                                <li>
+                                    <uicontrol>365:</uicontrol> One year </li>
+                                <li>
+                                    <uicontrol>547:</uicontrol> 18 months </li>
+                                <li>
+                                    <uicontrol>730:</uicontrol> Two years </li>
+                                <li>
+                                    <uicontrol>1095:</uicontrol> Three years </li>
+                                <li>
+                                    <uicontrol>1826:</uicontrol> Five years </li>
+                            </ul></entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Cross References</entry>
+                    </row>
+                    <row>
+                        <entry>Continue exporting even when no cross reference internal values
+                            present</entry>
+                        <entry>When this option is enabled, the agent continues exporting even if
+                            the values of any cross reference items are not present in the database.
+                            The default is <uicontrol>No</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Provider ID Option</entry>
+                        <entry>Select one of the following options to determine how the Provider ID
+                            is handled:<ul id="ul_fs4_d2j_gjb">
+                                <li>
+                                    <uicontrol>External Provider ID:</uicontrol> Not currently
+                                    supported </li>
+                                <li>
+                                    <uicontrol>National Provider ID:</uicontrol> Uses the National
+                                    Provider ID </li>
+                                <li>
+                                    <uicontrol>UPIN:</uicontrol> Not currently supported </li>
+                                <li>
+                                    <uicontrol>Provider GUID:</uicontrol> Uses the NextGen Provider
+                                    ID (Default) </li>
+                                <li>
+                                    <uicontrol>Ignore:</uicontrol> Ignores the value </li>
+                            </ul></entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Demographics</entry>
+                    </row>
+                    <row>
+                        <entry>Gender Export Value</entry>
+                        <entry>Specifies whether to use birth sex or current gender to populate the
+                            administrative gender field. Following are the possible values and their
+                                meanings:<ul id="ul_gs4_d2j_gjb">
+                                <li>
+                                    <uicontrol>Current Gender:</uicontrol> Send the current gender. </li>
+                                <li>
+                                    <uicontrol>Birth Sex:</uicontrol> Send the birth sex. </li>
+                                <li>
+                                    <uicontrol>Current Gender Then Birth Sex:</uicontrol> Send the
+                                    current gender; if not found, send the birth sex. </li>
+                                <li>
+                                    <uicontrol>Birth Sex Then Current Gender:</uicontrol> Send the
+                                    birth sex; if not found, send the current gender </li>
+                            </ul>The default value is <uicontrol>Current Gender</uicontrol>.
+                        </entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Events</entry>
+                    </row>
+                    <row>
+                        <entry>Continuity of Care Document (HITSP C32 version 2.5) Export</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to queue the requested CCD for
+                            export. </entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">Export</entry>
+                    </row>
+                    <row>
+                        <entry>Allow export of duplicate CCDs</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to export duplicate CCDs. </entry>
+                    </row>
+                    <row>
+                        <entry>Automatically Include Sensitive Encounter Information</entry>
+                        <entry>When set to <uicontrol>Yes</uicontrol>, the agent includes data
+                            regardless of whether the data is from sensitive encounters. When set to
+                                <uicontrol>No</uicontrol>, the system uses the <uicontrol>Use Portal
+                                Sensitive Encounter Indicator</uicontrol> agent option to determine
+                            which sensitive encounters to export. The default value of
+                                <uicontrol>Automatically Include Sensitive Encounter
+                                Information</uicontrol> is <uicontrol>No</uicontrol>. <p>This option
+                                does not affect exports from the Medical Summary Utility or from the
+                                Referral Orders template in <ph
+                                    conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                />. </p><p>The system prevents you from setting the
+                                    <uicontrol>Automatically Include Sensitive Encounter
+                                    Information</uicontrol> option and the <uicontrol>Use Portal
+                                    Sensitive Encounter Indicator </uicontrol> option to
+                                    <uicontrol>Yes</uicontrol> at the same time. </p></entry>
+                    </row>
+                    <row>
+                        <entry>Bypass HIE Consent</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to ignore patient consent.
+                                <note>Enabling this option may have legal ramifications.
+                            </note></entry>
+                    </row>
+                    <row>
+                        <entry>Confidentiality Code Source</entry>
+                        <entry>This option provides a way to preserve the behavior of the
+                            deimplemented <uicontrol>Read Confidentiality Code From CDA</uicontrol>
+                            option. Select one of the following values: <ul id="ul_hs4_d2j_gjb">
+                                <li>
+                                    <uicontrol>Read Confidentiality Code From CCD:</uicontrol>
+                                    Behave as if the old <uicontrol>Read Confidentiality Code From
+                                        CDA</uicontrol> agent option is set to
+                                        <uicontrol>Yes</uicontrol>. </li>
+                                <li>
+                                    <uicontrol>Use Custom Confidentiality Code:</uicontrol> Use the
+                                    confidentiality code specified by the <uicontrol>Select
+                                        Confidentiality Code Option</uicontrol> agent option. </li>
+                                <li>
+                                    <uicontrol>Default Behavior:</uicontrol> Behave as if the old
+                                        <uicontrol>Read Confidentiality Code From CDA</uicontrol>
+                                    agent option is set to <uicontrol>No</uicontrol>. </li>
+                            </ul></entry>
+                    </row>
+                    <row>
+                        <entry>Content Generation Filter</entry>
+                        <entry>Use to exclude information, such as advanced directives, allergies,
+                            lab results, etc., from a CDA document. For example if you exclude lab
+                            results, the results are not included in the document, but the section
+                            is, thus allowing for C-CDA validation. However, excluding information
+                            can invalidate Meaningful Use requirements. To configure this filter,<ol
+                                id="ol_x5w_ngs_xhb">
+                                <li> In the <uicontrol>Agent Options</uicontrol> section, expand
+                                        <uicontrol>Export</uicontrol>, and click the
+                                        <uicontrol>Ellipsis</uicontrol> button.</li>
+                                <li> Clear the items you want to exclude and click
+                                        <uicontrol>OK</uicontrol>.</li>
+                            </ol>For further information, refer to the <uicontrol>CDA Content
+                                Selection Filter </uicontrol> option earlier in this topic.</entry>
+                    </row>
+                    <row>
+                        <entry>Deprecate previous exported CCD</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to deprecate previously exported
+                            CCDs.</entry>
+                    </row>
+                    <row>
+                        <entry>Document Convert to Format </entry>
+                        <entry>To include <ph
+                                conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                            /> documents as PDF attachments when generating CCDs, select
+                                <uicontrol>PDF</uicontrol>.</entry>
+                    </row>
+                    <row>
+                        <entry>Document Level Confidentiality Code</entry>
+                        <entry>Specifies the level of confidentiality for the document:<ul
+                                id="ul_is4_d2j_gjb">
+                                <li>
+                                    <uicontrol>N:</uicontrol> Normal </li>
+                                <li>
+                                    <uicontrol>R:</uicontrol> Restricted </li>
+                                <li>
+                                    <uicontrol>V:</uicontrol> Very Restricted </li>
+                            </ul>The default value is N.</entry>
+                    </row>
+                    <row>
+                        <entry>Enterprises For Export</entry>
+                        <entry>If needed, select specific enterprises that will export data. If none
+                            are selected, all will export.</entry>
+                    </row>
+                    <row>
+                        <entry>Export External Person</entry>
+                        <entry>Specify whether to prevent export of CCDs that lack an external ID
+                            for a person. <ul id="ul_js4_d2j_gjb">
+                                <li>
+                                    <uicontrol>Yes:</uicontrol> Skip exporting any CCDs for persons
+                                    that lack an external ID. </li>
+                                <li>
+                                    <uicontrol>No:</uicontrol> Export CCDs even if they lack an
+                                    external ID for a person. This value is the default. </li>
+                            </ul><note>The <uicontrol>Yes</uicontrol> and <uicontrol>No</uicontrol>
+                                values have the opposite effect of what you might expect from the
+                                name of the option.</note></entry>
+                    </row>
+                    <row>
+                        <entry>Export IMO Codes</entry>
+                        <entry>Specify whether to include Intelligent Medical Objects (IMO) concept
+                            codes when exporting C-CDAs. The default is
+                            <uicontrol>Yes</uicontrol>.</entry>
+                    </row>
+                    <row>
+                        <entry>Generate New GUID for CDA Document ID Extension</entry>
+                        <entry>If <uicontrol>Yes</uicontrol>, sets the id root and extension in the
+                            C-CDA document to a unique value that does not match the
+                            XDSDocumentEntry.uniqueID value in the SOAP envelope. If
+                                <uicontrol>No</uicontrol>, sets the id root and extension in the
+                            C-CDA document so they match the XDSDocumentEntry.uniqueID value in the
+                            SOAP envelope. In this case, the XDSDocumentEntry.uniqueID value is
+                            compounded of the id root value, followed by a carat (^), followed by
+                            the extension value. </entry>
+                    </row>
+                    <row>
+                        <entry>Image Convert to Format</entry>
+                        <entry>To include <ph
+                                conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                            /> images as PDF attachments when generating CCDs, select
+                                <uicontrol>PDF</uicontrol>.</entry>
+                    </row>
+                    <row>
+                        <entry>Include clinical context when collecting encounter-level CCD
+                            information</entry>
+                        <entry>This option has been replaced by the <uicontrol>Information to
+                                include/exclude for clinical context</uicontrol> option, which
+                            provides more detailed control over clinical context
+                            information.</entry>
+                    </row>
+                    <row>
+                        <entry>Include email in CCD Documents</entry>
+                        <entry>This option can include or exclude a provider’s email in the Author
+                            section of a CCD. The default value is <uicontrol>Yes </uicontrol> to
+                            include the email.</entry>
+                    </row>
+                    <row>
+                        <entry>Include Legacy Template Ids</entry>
+                        <entry>Specifies whether to include legacy template IDs in addition to the
+                            current template IDs. The default is <uicontrol>No</uicontrol>.</entry>
+                    </row>
+                    <row>
+                        <entry>Information to include/exclude for clinical context</entry>
+                        <entry>Specifies which types of clinical information to include when
+                            creating an encounter-level CCD.</entry>
+                    </row>
+                    <?oxy_insert_start author="jmorales" timestamp="20190905T151257-0700"?>
+                    <row>
+                        <entry>Legal Authenticator - Designated User Id</entry>
+                        <entry>Specifies the user ID of the legal authenticator to be used when the
+                                <uicontrol>Legal Authenticator Selection</uicontrol> agent option is
+                            set to <uicontrol>Designated User Id</uicontrol>. If another
+                                <uicontrol>Legal Authenticator Selection</uicontrol> value is
+                            selected, this option is ignored.</entry>
+                    </row>
+                    <row>
+                        <entry>Legal Authenticator Selection</entry>
+                        <entry>Specifies which user should be listed as the legal authenticator in
+                            an exported C-CDA.<ul id="ul_wbg_1dc_z3b">
+                                <li><uicontrol>Intrf_queue User:</uicontrol> The user specified by
+                                    the intrf_queue.created_by database field. This is the user
+                                    responsible for triggering the generation of the C-CDA (for
+                                    example,the active user in <ph
+                                        conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                    />, the user who locks the encounter when there is an Encounter
+                                    Lock trigger, or the SYSTEM user for some automated generation
+                                    scenarios). </li>
+                                <li><uicontrol>Designated User Id:</uicontrol> The user specified by
+                                    the <uicontrol>Legal Authenticator- Designated User
+                                        Id</uicontrol> agent option. The selected user must be a
+                                    person, not a system user. </li>
+                                <li><uicontrol>Supervising Provider then Rendering
+                                        Provider:</uicontrol> The supervising provider for the
+                                    encounter (if any), otherwise the rendering provider for the
+                                    encounter. If neither of these exists, and the C-CDA is
+                                    longitudinal, then the user is taken from the latest encounter
+                                    that has a rendering provider; the supervising provider is used
+                                    if available, otherwise the rendering provider is used. </li>
+                                <li><uicontrol>Rendering Provider:</uicontrol> The rendering
+                                    provider for the encounter, or if none is present, then the
+                                    rendering provider for the latest encounter that has a rendering
+                                    provider. If no encounters have a rendering provider, then no
+                                    legal authenticator is included in the C-CDA. </li>
+                                <li><uicontrol>On Behalf Of Provider/Active Provider:</uicontrol>
+                                    The <uicontrol>On Behalf Of </uicontrol> provider in Medical
+                                    Summary Utility or the<uicontrol> Active Provider</uicontrol> in
+                                        <ph
+                                        conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                    />. Do not select this value for agents that support automated
+                                    C-CDA generation. If this value is selected, no Legal
+                                    Authenticator is included in automatically generated C-CDAs. </li>
+                                <li><uicontrol>Intrf_queue Provider:</uicontrol> The provider in the
+                                    intrf_queue.provider_id field (if any). This is the provider
+                                    associated with the generated C-CDA (for example, the rendering
+                                    provider if one and only one encounter is selected in the
+                                    Clinical Information section in Medical Summary Utility). The
+                                    value may be empty if multiple encounters are selected. <p>If no
+                                        provider is present in the intrf_queue.provider_id field,
+                                        then no Legal Authenticator is included in the
+                                    C-CDA.</p></li>
+                                <li><uicontrol>No Legal Authenticator:</uicontrol> No Legal
+                                    Authenticator is included in the C-CDA. </li>
+                            </ul>For more details about how these values behave for different types
+                            of exports (from locked encounters, Medical Summary Utility, and so on),
+                            refer to <xref href="c_legal_authenticator_expected_results.dita"
+                                />.<p>The default value is <uicontrol>Intrf_queue
+                                User</uicontrol>.</p></entry>
+                    </row>
+                    <?oxy_insert_end?>
+                    <row>
+                        <entry>Location For Sensitive Data Warning</entry>
+                        <entry>Specifies when to include the sensitive warning message in the
+                            document. Select one of the following:<ul id="ul_ks4_d2j_gjb">
+                                <li>
+                                    <uicontrol>AlwaysIncludeAtSectionLevel:</uicontrol> Includes the
+                                    sensitive warning message at section level in all documents,
+                                    regardless of whether sensitive data is removed or not. </li>
+                                <li>
+                                    <uicontrol>SectionLevel:</uicontrol> Includes the sensitive
+                                    warning message at section level when sensitive data is removed
+                                    from the section. </li>
+                                <li>
+                                    <uicontrol>DoNotSendWarning:</uicontrol> Does not include the
+                                    sensitive warning message in the document. The document will
+                                    have no indication that sensitive data might have been removed.
+                                </li>
+                            </ul>The default value is <uicontrol>SectionLevel</uicontrol>. <p>The
+                                text of the sensitive warning message is specified by the
+                                    <uicontrol>Sensitive Warning Message</uicontrol> agent option.
+                            </p></entry>
+                    </row>
+                    <row>
+                        <entry>Locations For Export</entry>
+                        <entry>If needed, select specific locations that will export data. If none
+                            are selected, all will export.</entry>
+                    </row>
+                    <row>
+                        <entry>Maximum Export Records Per Cycle</entry>
+                        <entry>Set to <uicontrol>100</uicontrol>. Setting a lower value can cause a
+                            performance degradation when exporting longitudinal CCDs. </entry>
+                    </row>
+                    <row>
+                        <entry>Practices For Export</entry>
+                        <entry>If needed, select specific practices that will export data. If none
+                            are selected, all will export.</entry>
+                    </row>
+                    <row>
+                        <entry>Read Confidentiality Code From CDA</entry>
+                        <entry>This option is replaced by the <uicontrol>Select Confidentiality Code
+                                Option</uicontrol> option. Formerly, this option could export a
+                            confidentiality code that is set in a generated CDA document and use it
+                            for submission. If the value is <uicontrol>Yes</uicontrol>, a code of
+                            Normal Sharing is set. The default value is <uicontrol>No</uicontrol>,
+                            which means that no confidentiality code gets set. <p>To preserve the
+                                preserve the behavior of this deprecated option, you can use the
+                                    <uicontrol>Confidentiality Code Source</uicontrol> option
+                                instead. </p></entry>
+                    </row>
+                    <row>
+                        <entry>Select Confidentiality Code Option</entry>
+                        <entry>Select one of the following:<ul id="ul_ls4_d2j_gjb">
+                                <li>
+                                    <uicontrol>No Sharing:</uicontrol> Not to be imported from or
+                                    exported to an external system under any circumstances. </li>
+                                <li>
+                                    <uicontrol>Normal:</uicontrol> Only authorized individuals with
+                                    a legitimate or medical business may access this item. </li>
+                                <li>
+                                    <uicontrol>Restricted:</uicontrol> Only providers having a
+                                    current care relationship to the patient can access this item. </li>
+                                <li>
+                                    <uicontrol>Sensitive Sharing:</uicontrol> Information for which
+                                    the patient seeks heightened confidentiality, and which is not
+                                    to be shared with family members. </li>
+                                <li>
+                                    <uicontrol>Default behaviour:</uicontrol> Same as
+                                        <uicontrol>Normal</uicontrol>. </li>
+                            </ul>You can change the list of available values for this option by
+                            editing the XDS Confidentiality master list in File Maintenance.</entry>
+                    </row>
+                    <row>
+                        <entry>Sensitive Warning Message</entry>
+                        <entry>Specifies the warning message to be added to the document when
+                            sensitive information is excluded. The default is "As per patient
+                            privacy policy some of the clinical information may not be visible". You
+                            can enter a string of any text.The <uicontrol>Location For Sensitive
+                                Data Warning</uicontrol> agent option specifies where and when this
+                            message is included in documents. </entry>
+                    </row>
+                    <row>
+                        <entry>Tobacco Procedures</entry>
+                        <entry>Use this option to specify tobacco procedures. Values of this option
+                            are from the 2016 Tobacco measure.<ul id="ul_ms4_d2j_gjb">
+                                <li>
+                                    <uicontrol>11366-2:</uicontrol> History of tobacco use Narrative </li>
+                                <li>
+                                    <uicontrol>39240-7:</uicontrol> Tobacco use [CPHS] </li>
+                                <li>
+                                    <uicontrol>68535-4:</uicontrol> Have you used tobacco in the
+                                    last 30 days [SAMHSA] </li>
+                                <li>
+                                    <uicontrol>68536-2:</uicontrol> Have you used smokeless tobacco
+                                    product in the last 30 days [SAMHSA] </li>
+                                <li>
+                                    <uicontrol>72166-2:</uicontrol> Tobacco smoking status [NHIS]
+                                </li>
+                            </ul></entry>
+                    </row>
+                    <row>
+                        <entry>Use Portal Sensitive Encounter Indicator</entry>
+                        <entry>Works together with the <uicontrol>Automatically Include Sensitive
+                                Encounter Information </uicontrol> option to specify which types of
+                            sensitive encounters are suppressed. When <uicontrol>Automatically
+                                Include Sensitive Encounter Information</uicontrol> is
+                                <uicontrol>No, </uicontrol> the <uicontrol>Use Portal Sensitive
+                                Encounter Indicator</uicontrol> values have the following effects:
+                                <ul id="ul_ns4_d2j_gjb">
+                                <li>
+                                    <uicontrol>Yes: :</uicontrol> Suppresses encounters for which
+                                    the <uicontrol>Sensitive Encounter</uicontrol> and
+                                        <uicontrol>Suppress Auto Send to Patient Portal </uicontrol>
+                                    settings are both enabled in <ph
+                                        conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                    />. </li>
+                                <li>
+                                    <uicontrol>No: :</uicontrol> Suppresses encounters for which the
+                                        <uicontrol>Sensitive Encounter</uicontrol> setting is
+                                    enabled, but the <uicontrol>Suppress Auto Send to Patient Portal
+                                    </uicontrol> setting is disabled, in <ph
+                                        conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                    />. </li>
+                            </ul><p>When <uicontrol>Automatically Include Sensitive Encounter
+                                    Information</uicontrol> is <uicontrol>Yes, </uicontrol> the
+                                    <uicontrol>Use Portal Sensitive Encounter Indicator</uicontrol>
+                                option has no effect. All sensitive data is exported. </p><p>The
+                                default value of <uicontrol>Use Portal Sensitive Encounter
+                                    Indicator</uicontrol> is <uicontrol>No</uicontrol>. </p><p>The
+                                system prevents you from setting the <uicontrol>Use Portal Sensitive
+                                    Encounter Indicator</uicontrol> and <uicontrol>Automatically
+                                    Include Sensitive Encounter Information</uicontrol> options to
+                                    <uicontrol>Yes</uicontrol> at the same time. </p><p>These
+                                options do not affect exports from the Medical Summary Utility or
+                                from the Referral Orders template in <ph
+                                    conref="../../../ua_common/collections/coll_ng_product_names.dita#coll_ng_product_names/ph_ehr"
+                                />. </p></entry>
+                    </row>
+                    <row>
+                        <entry nameend="c2" namest="c1">General</entry>
+                    </row>
+                    <row>
+                        <entry>Auto Start</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> (recommended) </entry>
+                    </row>
+                    <row>
+                        <entry><?oxy_insert_start author="jmorales" timestamp="20190903T174036-0700"?>Care
+                            Plan Document Type<?oxy_insert_end?></entry>
+                        <entry><?oxy_insert_start author="jmorales" timestamp="20190903T174050-0700"?>The
+                            specific type of Care Plan document that will be exported. The default
+                            is <uicontrol>18776-5, Plan of Care Note</uicontrol>. This option has
+                            effect only when the <menucascade>
+                                <uicontrol>General</uicontrol>
+                                <uicontrol>Default C-CDA R2.1 Template</uicontrol>
+                            </menucascade> option is set to <uicontrol>Care
+                            Plan</uicontrol>.<?oxy_insert_end?></entry>
+                    </row>
+                    <row>
+                        <entry>Default C-CDA R2.1 Template</entry>
+                        <entry>Specifies the default template to use when creating R2.1 documents.
+                            The available values are <uicontrol>CCD</uicontrol>, <uicontrol>Care
+                                Plan</uicontrol>, <uicontrol>Referral
+                            Note</uicontrol><?oxy_insert_start author="jmorales" timestamp="20190905T151349-0700"?>,
+                            and <uicontrol>History and Physical</uicontrol><?oxy_insert_end?>.The
+                            default value is <uicontrol>CCD</uicontrol>. This option has effect only
+                            if the <menucascade>
+                                <uicontrol>General </uicontrol>
+                                <uicontrol>Format </uicontrol>
+                            </menucascade> option is set to <uicontrol>C-CDA R2.1</uicontrol>.
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Enable Agent Activity Serialization</entry>
+                        <entry>Specify whether the agent should serialize and store all agent
+                            activities to the intrf_queue database table. A setting of
+                                <uicontrol>Yes </uicontrol> saves agent activity so you can
+                            conveniently run reports. However, a setting of <uicontrol>No
+                            </uicontrol> causes the agent to run faster. The default is
+                                <uicontrol>Yes</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>External System Name</entry>
+                        <entry>Select the name of the external system that Rosetta exchanges data
+                            with.</entry>
+                    </row>
+                    <row>
+                        <entry>External System To Xref Codes In Code Tables</entry>
+                        <entry>Select the external system used to cross reference codes in Code
+                            Tables. The value must be <uicontrol>CCDAR21 </uicontrol> if the <menucascade>
+                                <uicontrol>General </uicontrol>
+                                <uicontrol>Format </uicontrol>
+                            </menucascade> option is <uicontrol>C-CDA R2.1</uicontrol>. The default
+                            is <uicontrol>CCDAR21</uicontrol>. During agent upgrades to 5.9 from
+                            earlier releases, the value is changed to
+                            <uicontrol>CCDAR21</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>External System To Xref Codes In Mstr Lists</entry>
+                        <entry>Select the external system used to cross reference codes in Master
+                            Lists. The value must be <uicontrol>CCDAR21 </uicontrol> if the <menucascade>
+                                <uicontrol>General </uicontrol>
+                                <uicontrol>Format </uicontrol>
+                            </menucascade> option is <uicontrol>C-CDA R2.1</uicontrol>. The default
+                            is <uicontrol>CCDAR21</uicontrol>. During agent upgrades to 5.9 from
+                            earlier releases, the value is changed to
+                            <uicontrol>CCDAR21</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Format</entry>
+                        <entry>Select one of the following: <ul id="ul_os4_d2j_gjb">
+                                <li>
+                                    <uicontrol>BPPC:</uicontrol> Generates a BPPC consent document </li>
+                                <li>
+                                    <uicontrol>C-CDA:</uicontrol> Generates a C-CDA 1.1 formatted
+                                    medical summary </li>
+                                <li>
+                                    <uicontrol>C-CDA R2.1:</uicontrol> Generates a C-CDA R2.1
+                                    formatted medical summary </li>
+                                <li>
+                                    <uicontrol>C32:</uicontrol> Generates a HITSP C32 version 2.3
+                                    formatted medical summary </li>
+                                <li>
+                                    <uicontrol>C32 CDSC:</uicontrol> Generates a C32 document
+                                    according to CDSC specifications </li>
+                                <li>
+                                    <uicontrol>C32 v2.5:</uicontrol> Generates a HITSP C32 version
+                                    2.5 formatted medical summary </li>
+                                <li>
+                                    <uicontrol>Cancer Event Report:</uicontrol> Generates a Cancer
+                                    Registry Reporting 1.0 document. For details, go to the <xref
+                                        conref="../../../ua_common/collections/coll_ng_standard_text_snippets.dita#coll_ng_standard_text_snippets/xref_sc_link"
+                                    /> and download the <cite>Cancer Registry Interface Setup Guide
+                                        for NextGen Enterprise</cite>. </li>
+                                <li>
+                                    <uicontrol>Cancer Event Report 1.1:</uicontrol> Generates a
+                                    Cancer Registry Reporting 1.1 document. For details, go to the
+                                        <xref format="html"
+                                        href="https://www.community.nextgen.com/" scope="external"
+                                        >NextGen Healthcare Success Community</xref> and download
+                                    the <cite>Cancer Registry Interface Setup Guide for NextGen
+                                        Enterprise</cite>. </li>
+                                <li>
+                                    <uicontrol>National Health Care Survey::</uicontrol> Used only
+                                    for certification. To submit survey data to the CDC, use
+                                        <uicontrol>National Health Care Survey 1.1</uicontrol>
+                                    instead. </li>
+                                <li>
+                                    <uicontrol>National Health Care Survey 1.1 :</uicontrol>
+                                    <uicontrol>National Health Care Survey 1.2:</uicontrol>
+                                    Generates input for the National Ambulatory Medical Care Survey
+                                    (NAMCS) at the specified level (1.1 or 1.2). For details, go to
+                                    the <xref
+                                        conref="../../../ua_common/collections/coll_ng_standard_text_snippets.dita#coll_ng_standard_text_snippets/xref_sc_link"
+                                    /> and download the <cite>Health Care Surveys Configuration
+                                        Guide for NextGen Enterprise</cite>. </li>
+                                <li>
+                                    <uicontrol>Public Health Case Report:</uicontrol> Generates a
+                                    Public Health Case Report document </li>
+                                <li>
+                                    <uicontrol>XACML:</uicontrol> Generates a XACML consent document </li>
+                                <li>
+                                    <uicontrol>XDSMS:</uicontrol> Generates an IHE XDSMS formatted
+                                    medical summary </li>
+                            </ul></entry>
+                    </row>
+                    <row>
+                        <entry>Interface User ID </entry>
+                        <entry>Select the NextGen User ID for the interface.</entry>
+                    </row>
+                    <row>
+                        <entry>NextGen Practice Identifier</entry>
+                        <entry>Select the Practice ID (typically <uicontrol>0001</uicontrol>) .
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Practice Mapping</entry>
+                        <entry>Select <uicontrol>CrossReference</uicontrol>. </entry>
+                    </row>
+                    <?oxy_insert_start author="jmorales" timestamp="20190903T174248-0700"?>
+                    <row>
+                        <entry>Referral Document Type</entry>
+                        <entry>The specific type of Referral Note document that will be exported.
+                            The default is <uicontrol>57133-1, Referral Note</uicontrol>. This
+                            option has effect only when the <menucascade>
+                                <uicontrol>General</uicontrol>
+                                <uicontrol>Default C-CDA R2.1 Template</uicontrol>
+                            </menucascade> option is set to <uicontrol>Referral
+                            Note</uicontrol>.</entry>
+                    </row>
+                    <?oxy_insert_end?>
+                    <row>
+                        <entry nameend="c2" namest="c1">Workflow Notification</entry>
+                    </row>
+                    <row
+                        conref="../../enterprise_common/collections/coll_rosetta_agent_options_for_reuse.dita#coll_rosetta_agent_options_for_reuse/row_backup_user_to_notify">
+                        <entry/>
+                    </row>
+                    <row>
+                        <entry>Notify Order Creator</entry>
+                        <entry>Set to <uicontrol>No</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Notify Ordering Provider</entry>
+                        <entry>Set to <uicontrol>Yes</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Notify Workflow Group</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to send notifications to a group.
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Treat Blank Result Flag as Normal Task Priority</entry>
+                        <entry>Set to <uicontrol>Yes </uicontrol> to create a Normal Task Priority
+                            when the Result Flag is not provided. </entry>
+                    </row>
+                    <row>
+                        <entry>Use Simple Workflow Notification</entry>
+                        <entry>Set to <uicontrol>No</uicontrol>. </entry>
+                    </row>
+                    <row>
+                        <entry>Workflow Subject</entry>
+                        <entry>Enter the subject for the task created by this agent. If left blank,
+                            the agent will use the default.</entry>
+                    </row>
+                    <row>
+                        <entry>Workflow Task Category</entry>
+                        <entry>Select the category name where the notification is sent.</entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </refbody>
+</reference>
