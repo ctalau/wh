@@ -681,7 +681,7 @@
                         <entry nameend="c2" namest="c1">Workflow Notification</entry>
                     </row>
                     <row
-                        conref="../../enterprise_common/collections/coll_rosetta_agent_options_for_reuse.dita#coll_rosetta_agent_options_for_reuse/row_backup_user_to_notify">
+                        conref="coll_rosetta_agent_options_for_reuse.dita#coll_rosetta_agent_options_for_reuse/row_backup_user_to_notify">
                         <entry/>
                     </row>
                     <row>
