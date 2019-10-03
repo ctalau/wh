@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
-<reference id="r_agent_options_for_ccd_export_exchange" lang="br">
+<reference id="r_agent_options_for_ccd_export_exchange">
     <title>Agent Options for CCD Export Exchange</title>
     <shortdesc>Agent options specify behaviors for various categories of agent
         functionality.</shortdesc>
@@ -681,7 +681,7 @@
                         <entry nameend="c2" namest="c1">Workflow Notification</entry>
                     </row>
                     <row
-                        conref="coll_rosetta_agent_options_for_reuse.dita#coll_rosetta_agent_options_for_reuse/row_backup_user_to_notify">
+                        conref="../../enterprise_common/collections/coll_rosetta_agent_options_for_reuse.dita#coll_rosetta_agent_options_for_reuse/row_backup_user_to_notify">
                         <entry/>
                     </row>
                     <row>
