@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic_ebk_5my_mjb">
-    <title></title>
-    <body>
-        <p></p>
-    </body>
-</topic>
+<?xml-stylesheet type="text/css" href="test.css"?>
+<root>
+    <header>asdasdasd</header>
+    <body/>
+</root>
